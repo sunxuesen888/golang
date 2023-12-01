@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
-	"text/template"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -25,6 +25,10 @@ func Println(str1 string, str2 string) string {
 func main() {
 	r := gin.Default()
 	//自定义模版函数，必须在loadhtmlglob前面
+	// r.SetFuncMap(template.FuncMap{
+	// 	"UnixToTime": UnixToTime,
+	// 	"Println":    Println,
+	// })
 	r.SetFuncMap(template.FuncMap{
 		"UnixToTime": UnixToTime,
 		"Println":    Println,
